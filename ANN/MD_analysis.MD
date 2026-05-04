@@ -1,6 +1,6 @@
 MODEL Analysis
 
-	LOSS/EPOCH					
+								LOSS/EPOCH					
 No. of Hidden Layers	1	2	3	4	5	Accuracy
 1	        0.4282	0.2316	0.1845	0.1626	0.1434	97.01
 2	        0.4999	0.2631	0.2176	0.1891	0.1758	96.58
