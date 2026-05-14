@@ -1,4 +1,4 @@
-
+#A simple logostic Regression model to classify the MNIST dataset of handwritten digits. The code includes data loading, preprocessing, model training, and evaluation using accuracy and confusion matrix.
 
 from sklearn.datasets import fetch_openml
 from sklearn.model_selection import train_test_split
@@ -29,7 +29,7 @@ print(mnist.data.iloc[0].min(), mnist.data.iloc[0].max()) #0.0 255.0 pixel value
 plt.figure(figsize=(20,4))
 for index, (image, label) in enumerate(zip(np.array(mnist.data[0:4]),np.array(mnist.target[0:4]))):
     plt.subplot(1, 5, index + 1)
-    #plt.imshow(np.reshape(image, (28, 28)), cmap=plt.cm.gray)
+    plt.imshow(np.reshape(image, (28, 28)), cmap=plt.cm.gray)
     plt.title('Label: ' + label, fontsize = 20)
 
 
