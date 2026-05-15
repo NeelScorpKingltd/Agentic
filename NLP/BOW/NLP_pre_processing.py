@@ -27,3 +27,19 @@ words = word_tokenize(punctuation_removed_text)    # Tokenizing the text into wo
 filtered_text = [word for word in words if word not in stop_words]    # Removing stop words from the list of words.
 print("Filtered Text: ", filtered_text, "\n")    # Printing the text with stop words removed.
 print("="*100)
+
+#stemming the words in the text 
+#Stemming is the process of reducing words to their base or root form.extracts the root of a word.
+from nltk.stem import PorterStemmer , WordNetLemmatizer   
+stemmer = PorterStemmer()    # Creating an instance of the PorterStemmer.
+stemmed_words = [stemmer.stem(word) for word in filtered_text]    # Stemming each word in the filtered text.
+print("Stemmed Text: ", stemmed_words, "\n")    # Printing the text with stemmed words.
+print("="*100)
+
+
+nltk.download('wordnet')
+nltk.download('omw-1.4')
+stemmer1=WordNetLemmatizer()    # Creating an instance of the WordNetLemmatizer.
+wordnet_lemmatized_words = [stemmer1.lemmatize(word) for word in filtered_text]    # Lemmatizing each word in the filtered text.
+print("WordNet Lemmatized Text: ", wordnet_lemmatized_words, "\n")    # Printing the text with lemmatized words.
+print("="*100)  
