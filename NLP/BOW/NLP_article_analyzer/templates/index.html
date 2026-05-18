@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>NLP Article Analyzer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+  <div class="container">
+    <h1>NLP Article Analyzer</h1>
+    {% if error %}
+    <div class="error">{{ error }}</div>
+    {% endif %}
+    <form method="post" action="/analyze">
+      <label for="article">Paste article text here</label>
+      <textarea id="article" name="article" rows="12" placeholder="Paste or type an article..."></textarea>
+      <button type="submit">Analyze</button>
+    </form>
+    <footer class="muted">Minimal analyzer</footer>
+  </div>
+</body>
+
+</html>

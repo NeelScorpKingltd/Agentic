@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Analysis Results</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Analysis Results</h1>
+    <a class="back" href="/">&larr; Analyze another</a>
+
+    <section>
+      <h2>Predicted Category</h2>
+      <p>This writing style of text is : <strong style="font-size: 1.2em; color: #2563eb;">{{ result.category
+          }}</strong>
+      </p>
+    </section>
+
+    <section>
+      <h2>Top 5 words</h2>
+      <ul>
+        {% for w, c in result.top_words %}
+        <li>{{ w }} — {{ c }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section>
+      <h2>Top 5 nouns</h2>
+      <ul>
+        {% for w, c in result.top_nouns %}
+        <li>{{ w }} — {{ c }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+
+
+
+    <section>
+      <h2>Named entities</h2>
+      <ul>
+        {% for entity, label in result.named_entities %}
+        <li>{{ entity }} — <strong>{{ label }}</strong></li>
+        {% else %}
+        <li>No named entities found.</li>
+        {% endfor %}
+      </ul>
+    </section>
+
+
+
+    <section>
+      <h2>Locations (GPE)</h2>
+      <ul>
+        {% for location, label in result.locations %}
+        <li>{{ location }}</li>
+        {% else %}
+        <li>No locations found.</li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section>
+      <h2>Top verbs</h2>
+      <ul>
+        {% for w, c in result.top_verbs %}
+        <li>{{ w }} — {{ c }}</li>
+        {% else %}
+        <li>No verbs found.</li>
+        {% endfor %}
+      </ul>
+      {% if result.verbs_plot %}
+      <div class="chart">
+        <img src="{{ result.verbs_plot }}" alt="Top verbs chart" style="max-width:100%;height:auto">
+      </div>
+      {% endif %}
+    </section>
+
+
+  </div>
+</body>
+
+</html>
