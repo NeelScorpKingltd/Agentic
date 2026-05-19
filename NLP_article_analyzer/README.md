@@ -2,8 +2,7 @@
 
 Minimal Flask app that accepts an article, runs a small NLTK-based pipeline (tokenization, lemmatization, POS tagging, and top words), and shows results.
 
-To view the Hosted app - 
-https://nlp-article-analyzer.onrender.com/
+
 
 Quick start
 
